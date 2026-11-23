@@ -1,247 +1,696 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi E-Commerce</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <header
-      class="d-flex justify-content-between align-items-center p-3 bg-light"
-    >
-      <img
-        src="https://dummyimage.com/300x300/cccccc/000000.png"
-        width="100"
-        height="100"
-        alt="Logo"
-      />
-      <nav>
-        <ul class="menu d-flex list-unstyled gap-3">
-          <li class="itemMenu">
-            <a href="#productos" class="text-dark">Productos</a>
-          </li>
-          <li class="itemMenu">
-            <a href="#reseñas" class="text-dark">Reseñas</a>
-          </li>
-          <li class="itemMenu">
-            <a href="#carrito" class="text-dark" id="open-cart">
-              Carrito (<span id="cart-counter-nav">0</span>)
-            </a>
-          </li>
-          <li class="itemMenu">
-            <a href="#redes-sociales" class="text-dark">Redes Sociales</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <main class="main-content">
-      <section class="portada text-center p-5">
-        <h1>Mi web e-commerce</h1>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur
-          ducimus itaque rem!
+  <title>TechLab E-Commerce</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="d-flex justify-content-between align-items-center p-3 bg-light">
+
+    <img src="https://dummyimage.com/300x300/cccccc/000000.png" width="100" height="100" alt="Logo TechLab" />
+
+    <nav>
+      <ul class="menu d-flex list-unstyled gap-3 mb-0">
+
+        <li class="itemMenu">
+          <a href="#productos" class="text-dark">
+            Productos
+          </a>
+        </li>
+
+        <li class="itemMenu">
+          <a href="#reseñas" class="text-dark">
+            Reseñas
+          </a>
+        </li>
+
+        <li class="itemMenu">
+          <a href="#carrito" class="text-dark" id="open-cart">
+            Carrito (<span id="cart-counter-nav">0</span>)
+          </a>
+        </li>
+
+        <li class="itemMenu">
+          <a href="#administracion" class="text-dark">
+            Administración
+          </a>
+        </li>
+
+        <li class="itemMenu">
+          <a href="#redes-sociales" class="text-dark">
+            Redes Sociales
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+
+  </header>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+
+
+    <!-- PORTADA -->
+    <section class="portada text-center p-5">
+
+      <h1>TechLab E-Commerce</h1>
+
+      <p>
+        Tienda online desarrollada con Java, Spring Boot,
+        MySQL y JavaScript.
+      </p>
+
+    </section>
+
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="contenedorCards container my-5">
+
+      <h2 class="text-center mb-4">
+        Productos
+      </h2>
+
+      <div id="productos-container" class="d-flex flex-wrap justify-content-around gap-3">
+        <!-- Productos cargados desde Spring Boot -->
+      </div>
+
+    </section>
+
+
+    <!-- RESEÑAS -->
+    <section id="reseñas" class="container my-5">
+
+      <h2 class="text-center mb-4">
+        Reseñas
+      </h2>
+
+      <div class="row g-4">
+
+
+        <!-- CLIENTE 1 -->
+        <div class="col-12 col-md-4">
+
+          <div class="card h-100">
+
+            <img src="https://dummyimage.com/150x150/cccccc/000000.png" width="150" height="150" class="card-img-top"
+              alt="Cliente 1" />
+
+            <div class="card-body">
+
+              <h5 class="card-title">
+                Cliente 1
+              </h5>
+
+              <p class="card-text">
+                Excelente experiencia de compra.
+                El producto llegó correctamente y cumplió
+                con mis expectativas.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CLIENTE 2 -->
+        <div class="col-12 col-md-4">
+
+          <div class="card h-100">
+
+            <img src="https://dummyimage.com/150x150/cccccc/000000.png" width="150" height="150" class="card-img-top"
+              alt="Cliente 2" />
+
+            <div class="card-body">
+
+              <h5 class="card-title">
+                Cliente 2
+              </h5>
+
+              <p class="card-text">
+                La compra fue rápida y sencilla.
+                Muy buena experiencia utilizando la tienda.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- CLIENTE 3 -->
+        <div class="col-12 col-md-4">
+
+          <div class="card h-100">
+
+            <img src="https://dummyimage.com/150x150/cccccc/000000.png" width="150" height="150" class="card-img-top"
+              alt="Cliente 3" />
+
+            <div class="card-body">
+
+              <h5 class="card-title">
+                Cliente 3
+              </h5>
+
+              <p class="card-text">
+                Encontré fácilmente el producto que buscaba
+                y pude realizar mi pedido sin problemas.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ADMINISTRACIÓN -->
+    <section id="administracion" class="container my-5 py-5">
+
+      <div class="text-center mb-5">
+
+        <h2>
+          Administración
+        </h2>
+
+        <p class="text-muted">
+          Panel de gestión del e-commerce
         </p>
-      </section>
 
-      <section id="productos" class="contenedorCards container my-5">
-        <h2 class="text-center">Productos</h2>
-        <div
-          id="productos-container"
-          class="d-flex flex-wrap justify-content-around gap-3"
-        >
-          <!-- Productos serán insertados aquí -->
-        </div>
-      </section>
-
-      <!-- Sección de reseñas -->
-      <section id="reseñas" class="container my-5">
-        <h2 class="text-center">Reseñas</h2>
-        <div class="row">
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img
-                src="https://dummyimage.com/150x150/cccccc/000000.png"
-                width="150"
-                height="150"
-                class="card-img-top"
-                alt="Cliente 1"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Cliente 1</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure
-                  asperiores nobis voluptatum corporis eos atque accusamus
-                  provident unde.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img
-                src="https://dummyimage.com/150x150/cccccc/000000.png"
-                width="150"
-                height="150"
-                class="card-img-top"
-                alt="Cliente 2"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Cliente 2</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel
-                  similique ipsa et laudantium, animi ea eligendi quibusdam quis
-                  dolorum nulla.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img
-                src="https://dummyimage.com/150x150/cccccc/000000.png"
-                width="150"
-                height="150"
-                class="card-img-top"
-                alt="Cliente 3"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Cliente 3</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-                  ullam illo facilis sint. Ullam omnis dolores inventore?
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- CARRITO SIDEBAR -->
-    <div id="cart-sidebar" class="cart-sidebar">
-      <div class="cart-header">
-        <h3>Carrito <span id="cart-counter" class="cart-counter">0</span></h3>
       </div>
 
-      <div class="cart-content">
-        <div id="carrito-items" class="cart-items">
-          <!-- Items del carrito serán insertados aquí -->
-        </div>
 
-        <div class="cart-footer">
-          <div class="cart-total">
-            <strong>Total: $<span id="carrito-total">0</span></strong>
+      <div class="row g-4 justify-content-center">
+
+
+        <!-- ADMIN PRODUCTOS -->
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="card h-100 shadow-sm border-primary">
+
+            <div class="card-body text-center">
+
+              <div class="mb-3" style="font-size: 3rem;">
+                📦
+              </div>
+
+              <h4>
+                Productos
+              </h4>
+
+              <p class="text-muted">
+                Alta, modificación, consulta y eliminación
+                de productos.
+              </p>
+
+              <button class="btn btn-primary" id="admin-productos">
+                Gestionar productos
+              </button>
+
+            </div>
+
           </div>
 
-          <div class="cart-actions">
-            <button id="vaciar-carrito" class="btn btn-danger btn-sm">
-              Vaciar
-            </button>
-            <button id="realizar-compra" class="btn btn-success">
-              Comprar
-            </button>
-          </div>
         </div>
+
+
+        <!-- ADMIN STOCK -->
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="card h-100 shadow-sm border-warning">
+
+            <div class="card-body text-center">
+
+              <div class="mb-3" style="font-size: 3rem;">
+                📊
+              </div>
+
+              <h4>
+                Stock
+              </h4>
+
+              <p class="text-muted">
+                Consulta de existencias y productos
+                con stock mínimo.
+              </p>
+
+              <button class="btn btn-warning" id="admin-stock">
+                Ver stock
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ADMIN PEDIDOS -->
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="card h-100 shadow-sm border-success">
+
+            <div class="card-body text-center">
+
+              <div class="mb-3" style="font-size: 3rem;">
+                🛒
+              </div>
+
+              <h4>
+                Pedidos
+              </h4>
+
+              <p class="text-muted">
+                Consulta y seguimiento de los pedidos
+                realizados.
+              </p>
+
+              <button class="btn btn-success" id="admin-pedidos">
+                Ver pedidos
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ADMIN CATEGORÍAS -->
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="card h-100 shadow-sm border-info">
+
+            <div class="card-body text-center">
+
+              <div class="mb-3" style="font-size: 3rem;">
+                🏷️
+              </div>
+
+              <h4>
+                Categorías
+              </h4>
+
+              <p class="text-muted">
+                Alta, modificación y eliminación de categorías.
+              </p>
+
+              <button class="btn btn-info text-white" id="admin-categorias">
+                Gestionar categorías
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ADMIN USUARIOS -->
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="card h-100 shadow-sm border-secondary">
+
+            <div class="card-body text-center">
+
+              <div class="mb-3" style="font-size: 3rem;">
+                👤
+              </div>
+
+              <h4>
+                Usuarios
+              </h4>
+
+              <p class="text-muted">
+                Consulta de usuarios y su historial
+                de pedidos.
+              </p>
+
+              <button class="btn btn-secondary" id="admin-usuarios">
+                Ver usuarios
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
+
+      <!-- ÁREA DONDE MOSTRAREMOS LOS DATOS -->
+      <div id="admin-contenido" class="mt-5">
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- CARRITO SIDEBAR -->
+  <div id="cart-sidebar" class="cart-sidebar">
+
+    <div class="cart-header d-flex justify-content-between align-items-center">
+
+      <h3 class="mb-0">
+        Carrito
+        <span id="cart-counter" class="cart-counter">
+          0
+        </span>
+      </h3>
+
+      <button type="button" class="btn-close d-md-none" id="close-cart" aria-label="Cerrar"></button>
+
     </div>
 
-    <!-- Overlay para móviles -->
-    <div id="cart-overlay" class="cart-overlay"></div>
 
-    <!-- Modal de Compra Exitosa -->
-    <div
-      class="modal fade"
-      id="compraExitosaModal"
-      tabindex="-1"
-      aria-labelledby="compraExitosaModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-success text-white">
-            <h5 class="modal-title" id="compraExitosaModalLabel">
-              ¡Compra Realizada!
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body text-center">
-            <div class="mb-3">
-              <div class="text-success" style="font-size: 4rem">✓</div>
+    <div class="cart-content">
+
+      <div id="carrito-items" class="cart-items">
+        <!-- Items del carrito -->
+      </div>
+
+
+      <div class="cart-footer">
+
+        <div class="cart-total">
+
+          <strong>
+            Total:
+            <span id="carrito-total">
+              $ 0
+            </span>
+          </strong>
+
+        </div>
+
+
+        <div class="cart-actions">
+
+          <button id="vaciar-carrito" class="btn btn-danger btn-sm">
+            Vaciar
+          </button>
+
+          <button id="realizar-compra" class="btn btn-success">
+            Comprar
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- OVERLAY DEL CARRITO -->
+  <div id="cart-overlay" class="cart-overlay">
+  </div>
+
+
+  <!-- MODAL COMPRA EXITOSA -->
+  <div class="modal fade" id="compraExitosaModal" tabindex="-1" aria-labelledby="compraExitosaModalLabel"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+      <div class="modal-content">
+
+
+        <div class="modal-header bg-success text-white">
+
+          <h5 class="modal-title" id="compraExitosaModalLabel">
+            ¡Compra Realizada!
+          </h5>
+
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar">
+          </button>
+
+        </div>
+
+
+        <div class="modal-body text-center">
+
+          <div class="mb-3">
+
+            <div class="text-success" style="font-size: 4rem;">
+              ✓
             </div>
-            <h4>¡Tu compra se realizó exitosamente!</h4>
-            <p class="text-muted">
-              Gracias por tu compra. Recibirás un email de confirmación con los
-              detalles de tu pedido.
-            </p>
-            <p>
-              <strong>Total pagado: $<span id="modal-total">0</span></strong>
-            </p>
+
+          </div>
+
+
+          <h4>
+            ¡Tu compra se realizó exitosamente!
+          </h4>
+
+
+          <p class="text-muted">
+            Gracias por tu compra.
+            Tu pedido fue registrado correctamente.
+          </p>
+
+
+          <p>
+
+            <strong>
+              Total pagado:
+              <span id="modal-total">
+                $ 0
+              </span>
+            </strong>
+
+          </p>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+            Continuar Comprando
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MODAL CREAR / EDITAR PRODUCTO -->
+  <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="form-producto">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="productoModalLabel">Nuevo Producto</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="prod-id" />
+
+            <div class="mb-3">
+              <label for="prod-nombre" class="form-label fw-bold">Nombre *</label>
+              <input type="text" class="form-control" id="prod-nombre" required placeholder="Ej: Teclado Mecánico RGB" />
+            </div>
+
+            <div class="mb-3">
+              <label for="prod-categoria" class="form-label fw-bold">Categoría *</label>
+              <select class="form-select" id="prod-categoria" required>
+                <option value="">Seleccione una categoría...</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="prod-descripcion" class="form-label fw-bold">Descripción</label>
+              <textarea class="form-control" id="prod-descripcion" rows="3" placeholder="Descripción del producto..."></textarea>
+            </div>
+
+            <div class="row g-2 mb-3">
+              <div class="col-6">
+                <label for="prod-precio" class="form-label fw-bold">Precio ($) *</label>
+                <input type="number" class="form-control" id="prod-precio" step="0.01" min="0.01" required placeholder="Ej: 45000" />
+              </div>
+              <div class="col-6">
+                <label for="prod-imagen" class="form-label fw-bold">URL de Imagen</label>
+                <input type="text" class="form-control" id="prod-imagen" placeholder="Ej: img/producto.jpg o https://..." />
+              </div>
+            </div>
+
+            <div class="row g-2">
+              <div class="col-6">
+                <label for="prod-stock" class="form-label fw-bold">Stock *</label>
+                <input type="number" class="form-control" id="prod-stock" min="0" required placeholder="Ej: 15" />
+              </div>
+              <div class="col-6">
+                <label for="prod-stock-minimo" class="form-label fw-bold">Stock Mínimo *</label>
+                <input type="number" class="form-control" id="prod-stock-minimo" min="0" required value="5" />
+              </div>
+            </div>
+
+            <div id="modal-producto-alerta" class="alert alert-danger mt-3 d-none" role="alert"></div>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-success"
-              data-bs-dismiss="modal"
-            >
-              Continuar Comprando
-            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" id="btn-guardar-producto">Guardar</button>
           </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL CONFIRMAR ELIMINACIÓN PRODUCTO -->
+  <div class="modal fade" id="confirmarEliminarModal" tabindex="-1" aria-labelledby="confirmarEliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="confirmarEliminarModalLabel">Confirmar Eliminación</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <p class="fs-5 mb-1">¿Estás seguro de que deseas eliminar este producto?</p>
+          <p class="text-primary fw-bold fs-6" id="eliminar-producto-nombre"></p>
+          <small class="text-danger">Esta acción eliminará el producto del catálogo.</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="btn-confirmar-eliminar">Eliminar</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <footer
-      id="redes-sociales"
-      class="bg-light p-4 mt-5 d-flex justify-content-between align-items-center"
-    >
-      <img
-        src="https://dummyimage.com/120x120/cccccc/000000.png"
-        width="120"
-        height="120"
-        alt="Logo"
-      />
-      <div class="d-flex gap-4">
-        <a href="https://www.facebook.com" target="_blank">
-          <img
-            src="https://dummyimage.com/60x60/cccccc/000000.png"
-            width="60"
-            height="60"
-            alt="Facebook"
-          />
-        </a>
-        <a href="https://www.instagram.com" target="_blank">
-          <img
-            src="https://dummyimage.com/60x60/cccccc/000000.png"
-            width="60"
-            height="60"
-            alt="Instagram"
-          />
-        </a>
-        <a href="https://www.x.com" target="_blank">
-          <img
-            src="https://dummyimage.com/600x60/cccccc/000000.png"
-            width="60"
-            height="60"
-            alt="Twitter"
-          />
-        </a>
+
+  <!-- MODAL CREAR / EDITAR CATEGORÍA -->
+  <div class="modal fade" id="categoriaModal" tabindex="-1" aria-labelledby="categoriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form id="form-categoria">
+          <div class="modal-header bg-info text-white">
+            <h5 class="modal-title" id="categoriaModalLabel">Nueva Categoría</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="cat-id" />
+
+            <div class="mb-3">
+              <label for="cat-nombre" class="form-label fw-bold">Nombre de la categoría *</label>
+              <input type="text" class="form-control" id="cat-nombre" required placeholder="Ej: Audio, Periféricos, Componentes" />
+            </div>
+
+            <div id="modal-categoria-alerta" class="alert alert-danger mt-3 d-none" role="alert"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-info text-white" id="btn-guardar-categoria">Guardar</button>
+          </div>
+        </form>
       </div>
-    </footer>
+    </div>
+  </div>
 
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  </body>
+
+  <!-- MODAL CONFIRMAR ELIMINACIÓN CATEGORÍA -->
+  <div class="modal fade" id="confirmarEliminarCategoriaModal" tabindex="-1" aria-labelledby="confirmarEliminarCategoriaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="confirmarEliminarCategoriaModalLabel">Confirmar Eliminación</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <p class="fs-5 mb-1">¿Estás seguro de que deseas eliminar esta categoría?</p>
+          <p class="text-danger fw-bold fs-6" id="eliminar-categoria-nombre"></p>
+          <small class="text-muted">No se podrá eliminar si tiene productos asociados.</small>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="btn-confirmar-eliminar-categoria">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL HISTORIAL PEDIDOS USUARIO -->
+  <div class="modal fade" id="historialPedidosModal" tabindex="-1" aria-labelledby="historialPedidosModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title" id="historialPedidosModalLabel">Historial de Pedidos</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h6 class="mb-0 text-muted" id="historial-usuario-info">Usuario: -</h6>
+            <span class="badge bg-primary" id="historial-pedidos-count">0 pedidos</span>
+          </div>
+          <div id="historial-pedidos-contenido">
+            <!-- Pedidos del usuario -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <footer id="redes-sociales" class="bg-light p-4 mt-5 d-flex justify-content-between align-items-center">
+
+    <img src="https://dummyimage.com/120x120/cccccc/000000.png" width="120" height="120" alt="Logo TechLab" />
+
+
+    <div class="d-flex gap-4">
+
+      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        Facebook
+      </a>
+
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        Instagram
+      </a>
+
+      <a href="https://www.x.com" target="_blank" rel="noopener noreferrer">
+        X
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+
 </html>
