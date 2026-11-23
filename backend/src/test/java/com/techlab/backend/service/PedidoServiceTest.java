@@ -153,4 +153,39 @@ public class PedidoServiceTest {
             pedidoService.actualizarEstado(1L, EstadoPedido.CANCELADO);
         });
     }
+
+    @Test
+    void testProductoConStock18Permite18YRechaza19() {
+        Producto prodStock18 = new Producto("Monitor Gamer", "144Hz", "Tecnología", 250000.0, "", 18);
+        prodStock18.setId(2L);
+
+        when(usuarioRepository.findById(1L)).thenReturn(Optional.of(usuario));
+        when(productoRepository.findById(2L)).thenReturn(Optional.of(prodStock18));
+        when(pedidoRepository.save(any(Pedido.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        // Pedido con cantidad = 18 (límite exacto de stock disponible)
+        Pedido pedidoLimite = new Pedido();
+        pedidoLimite.setUsuario(usuario);
+        DetallePedido detalle18 = new DetallePedido();
+        detalle18.setProducto(prodStock18);
+        detalle18.setCantidad(18);
+        pedidoLimite.setDetalles(List.of(detalle18));
+
+        Pedido guardado = pedidoService.guardarPedido(pedidoLimite);
+        assertNotNull(guardado);
+        assertEquals(18 * 250000.0, guardado.getTotal());
+        assertEquals(18, prodStock18.getStock()); // No descontado en guardado
+
+        // Intento con cantidad = 19 (supera stock 18)
+        Pedido pedidoExcedido = new Pedido();
+        pedidoExcedido.setUsuario(usuario);
+        DetallePedido detalle19 = new DetallePedido();
+        detalle19.setProducto(prodStock18);
+        detalle19.setCantidad(19);
+        pedidoExcedido.setDetalles(List.of(detalle19));
+
+        assertThrows(StockInsuficienteException.class, () -> {
+            pedidoService.guardarPedido(pedidoExcedido);
+        });
+    }
 }

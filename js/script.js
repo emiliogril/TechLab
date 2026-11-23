@@ -231,28 +231,37 @@ document.addEventListener("DOMContentLoaded", () => {
   // CARRITO
   // =====================================================
 
+  function obtenerStockDisponible(id, stockFallback = 999) {
+    const prod = productosGlobales.find((p) => p.id === id);
+    if (prod && prod.stock != null) {
+      return prod.stock;
+    }
+    return stockFallback != null ? stockFallback : 999;
+  }
+
   window.addToCart = function (id, image, title, price, stock, button) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     const existingProduct = cart.find((product) => product.id === id);
     const cantidadActualEnCarrito = existingProduct ? existingProduct.quantity : 0;
+    const stockDisponible = obtenerStockDisponible(id, stock);
 
-    if (cantidadActualEnCarrito >= stock) {
-      alert(`No podés agregar más unidades. El stock disponible de "${title}" es ${stock}.`);
+    if (cantidadActualEnCarrito >= stockDisponible) {
+      alert("No hay más stock disponible para este producto");
       return;
     }
 
     if (existingProduct) {
       existingProduct.quantity++;
       existingProduct.image = image;
-      existingProduct.stockMax = stock;
+      existingProduct.stockMax = stockDisponible;
     } else {
       cart.push({
         id,
         image,
         title,
         price,
-        stockMax: stock,
+        stockMax: stockDisponible,
         quantity: 1
       });
     }
@@ -272,6 +281,40 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  window.incrementarCantidad = function (id) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const item = cart.find((product) => product.id === id);
+    if (!item) return;
+
+    const stockDisponible = obtenerStockDisponible(id, item.stockMax);
+
+    if (item.quantity >= stockDisponible) {
+      alert("No hay más stock disponible para este producto");
+      return;
+    }
+
+    item.quantity++;
+    item.stockMax = stockDisponible;
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartUI();
+  };
+
+  window.decrementarCantidad = function (id) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const itemIndex = cart.findIndex((product) => product.id === id);
+    if (itemIndex === -1) return;
+
+    if (cart[itemIndex].quantity > 1) {
+      cart[itemIndex].quantity--;
+    } else {
+      // Si la cantidad llega a 1 y se disminuye nuevamente, se elimina el producto del carrito
+      cart.splice(itemIndex, 1);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartUI();
+  };
+
   function updateCartUI() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const carritoItems = document.getElementById("carrito-items");
@@ -289,7 +332,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btnComprar) btnComprar.disabled = false;
 
       cart.forEach((item) => {
+        const stockDisponible = obtenerStockDisponible(item.id, item.stockMax);
+        item.stockMax = stockDisponible;
+
+        // Si la cantidad en carrito supera el stock disponible en backend, se ajusta al máximo posible
+        if (item.quantity > stockDisponible && stockDisponible > 0) {
+          item.quantity = stockDisponible;
+        }
+
         const subtotal = item.price * item.quantity;
+        const reachedMaxStock = item.quantity >= stockDisponible;
 
         carritoItems.innerHTML += `
           <li class="cart-item">
@@ -304,20 +356,42 @@ document.addEventListener("DOMContentLoaded", () => {
                 ${item.title}
               </h6>
 
-              <p class="card-text">
-                Cantidad: <strong>${item.quantity}</strong>
-              </p>
+              <div class="cart-stock-info mb-1">
+                Disponible: <strong>${stockDisponible}</strong>
+              </div>
 
-              <p class="card-text">
+              <div class="cart-qty-wrapper mb-2">
+                <span class="small text-muted me-2">Cantidad:</span>
+                <div class="cart-qty-group">
+                  <button
+                    type="button"
+                    class="btn-qty"
+                    onclick="decrementarCantidad(${item.id})"
+                    title="Disminuir cantidad"
+                    aria-label="Disminuir"
+                  >-</button>
+                  <span class="cart-qty-value">${item.quantity}</span>
+                  <button
+                    type="button"
+                    class="btn-qty"
+                    onclick="incrementarCantidad(${item.id})"
+                    title="${reachedMaxStock ? 'No hay más stock disponible para este producto' : 'Aumentar cantidad'}"
+                    aria-label="Aumentar"
+                    ${reachedMaxStock ? "disabled" : ""}
+                  >+</button>
+                </div>
+              </div>
+
+              <p class="card-text mb-1">
                 Precio unitario: ${formatearMoneda(item.price)}
               </p>
 
-              <p class="card-text">
+              <p class="card-text mb-2">
                 Subtotal: <strong>${formatearMoneda(subtotal)}</strong>
               </p>
 
               <button
-                class="btn btn-sm btn-danger mt-1"
+                class="btn btn-sm btn-outline-danger btn-cart-remove"
                 onclick="removeFromCart(${item.id})"
               >
                 Eliminar
@@ -328,6 +402,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         total += subtotal;
       });
+
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
 
     const totalEl = document.getElementById("carrito-total");
